@@ -33,7 +33,7 @@ const LiveChartExample: React.FC<Props> = ({}) => {
   const onStartPress = React.useCallback(() => {
     intervalRef.current = setInterval(() => {
       setEcg(mockEcgData);
-      const head = mockEcgData.splice(0, 3);
+      const head = mockEcgData.splice(0, 9);
       mockEcgData = [...mockEcgData, ...head];
     }, UPDATE_INTERVAL_MS);
   }, []);
@@ -75,19 +75,21 @@ const styles = StyleSheet.create({
 });
 
 const mockPQRST: number[] = [
-  0.25, 0, 0, 0, 0, 0, 1, 2, 1, 0, -0.5, 0, 0, 0, 0, 0.25, 0, 0, 0, 0,
+  0.05, 0.125, 0.13, 0.125, 0.25, 0.125, 0.05, 0, 0, 0, 0, 0, 0, 0.5, 1, 1.5, 2,
+  1.5, 1, 0.5, -0.1, -0.25, -0.5, -0.25, -0.1, 0, 0, 0, 0, 0, 0.05, 0.125, 0.13,
+  0.125, 0.25, 0.125, 0.05, 0, 0, 0, 0, 0,
 ];
 
 let mockEcgData: number[] = [
-  ...Array.from({length: 20}, () => 0),
+  ...Array.from({length: 60}, () => 0),
   ...mockPQRST,
-  ...Array.from({length: 20}, () => 0),
+  ...Array.from({length: 60}, () => 0),
   ...mockPQRST,
-  ...Array.from({length: 20}, () => 0),
+  ...Array.from({length: 60}, () => 0),
   ...mockPQRST,
-  ...Array.from({length: 20}, () => 0),
+  ...Array.from({length: 60}, () => 0),
   ...mockPQRST,
-  ...Array.from({length: 20}, () => 0),
+  ...Array.from({length: 60}, () => 0),
   ...mockPQRST,
 ];
 
